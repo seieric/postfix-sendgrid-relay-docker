@@ -12,3 +12,5 @@ fi
 
 /usr/sbin/postmap /etc/postfix/sasl_passwd && rm /etc/postfix/sasl_passwd && chmod 600 /etc/postfix/sasl_passwd.db && \
 /usr/sbin/postfix start
+# prevent exit
+tail -f /dev/null
