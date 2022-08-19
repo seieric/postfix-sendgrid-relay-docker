@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [[ -z $SENDGRID_API_KEY ]]; then
   echo "You need to set SENDGRID_API_KEY to the container." >&2
   exit -1
