@@ -7,7 +7,7 @@ RUN echo "postfix postfix/mailname string localhost" && echo "postfix postfix/ma
 
 COPY configs/main.cf /etc/postfix/
 COPY configs/master.cf /etc/postfix/
-COPY init-postfix.sh /
+COPY --chmod=700 init-postfix.sh /
 
 EXPOSE 25
 EXPOSE 587
