@@ -53,5 +53,5 @@ smtp_sasl_security_options = noanonymous
 smtp_host_lookup = dns
 maillog_file = /var/log/maillog
 smtpd_sasl_auth_enable = yes
-smtpd_sasl_password_maps = hash:/etc/postfix/sasl
+smtpd_sasl_password_maps = hash:/etc/postfix/sasl_passwd
 smtpd_sasl_local_domain =  localhost.localdomain
