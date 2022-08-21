@@ -7,7 +7,7 @@ RUN echo "postfix postfix/mailname string localhost.localdomain" | debconf-set-s
 
 COPY configs/main.cf /etc/postfix/
 COPY configs/master.cf /etc/postfix/
-COPY config/sasl/smtpd.conf /etc/postfix/sasl/
+COPY configs/sasl/smtpd.conf /etc/postfix/sasl/
 COPY --chmod=700 init-postfix.sh /
 
 EXPOSE 25
