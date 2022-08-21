@@ -11,8 +11,8 @@ if [[ -n $SMTP_USER ]] && [[ -n $SMTP_PASSWORD ]]; then
   echo $SMTP_PASSWORD | saslpasswd2 -p $SMTP_USER
 fi
 
+adduser postfix sasl
+
 /usr/sbin/postmap /etc/postfix/sasl_passwd && rm /etc/postfix/sasl_passwd && chmod 600 /etc/postfix/sasl_passwd.db && \
-/usr/sbin/postfix start
 /usr/sbin/saslauthd -a sasldb
-# prevent exit
-tail -f /dev/null
+/usr/sbin/postfix start-fg

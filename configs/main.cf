@@ -54,3 +54,4 @@ smtp_host_lookup = dns
 maillog_file = /dev/stdout
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_local_domain =  localhost.localdomain
+smtpd_sasl_type = cyrus
