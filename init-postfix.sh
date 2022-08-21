@@ -13,6 +13,9 @@ fi
 
 adduser postfix sasl
 
+if [[ -e /etc/postfix/sender_canonical ]]; then
+  /usr/sbin/postmap /etc/postfix/sender_canonical && chmod 600 /etc/postfix/sender_canonical.db
+fi
 /usr/sbin/postmap /etc/postfix/sasl_passwd && rm /etc/postfix/sasl_passwd && chmod 600 /etc/postfix/sasl_passwd.db && \
 /usr/sbin/saslauthd -a sasldb
 /usr/sbin/postfix start-fg
