@@ -8,7 +8,7 @@ echo "[smtp.sendgrid.net]:587 apikey:$SENDGRID_API_KEY" >> /etc/postfix/sasl_pas
 
 # create user
 if [[ -n $SMTP_USER ]] && [[ -n $SMTP_PASSWORD ]]; then
-  echo $SMTP_PASSWORD | saslpasswd2 -p $SMTP_USER
+  echo $SMTP_PASSWORD | saslpasswd2 -p -u localhost.localdomain $SMTP_USER
 fi
 
 adduser postfix sasl
