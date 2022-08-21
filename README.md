@@ -13,7 +13,7 @@ Just pull the image and run the container with environment variables.
 
 For example,
 ```bash
-docker run -d --hostname example.com -e SENDGRID_API_KEY=YOUR_API_KEY -e SMTP_USER=user -e SMTP_PASSWORD=abcdef -p 25:25 -p 587:587 ghcr.io/seieric/postfix-sendgrid-relay-docker:main
+docker run -d --hostname example.com -e SENDGRID_API_KEY=YOUR_API_KEY -e SMTP_USER=user -e SMTP_PASSWORD=abcdef -p 25:25 -p 587:587 ghcr.io/seieric/postfix-sendgrid-relay-docker:latest
 ```
 
 ### Environment variables
