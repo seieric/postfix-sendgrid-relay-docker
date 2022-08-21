@@ -13,6 +13,7 @@ fi
 
 adduser postfix sasl
 
+cp /etc/resolv.conf /var/spool/postfix/etc/resolv.conf
 if [[ -e /etc/postfix/sender_canonical ]]; then
   /usr/sbin/postmap /etc/postfix/sender_canonical && chmod 600 /etc/postfix/sender_canonical.db
 fi
