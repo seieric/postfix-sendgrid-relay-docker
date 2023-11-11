@@ -55,5 +55,4 @@ maillog_file = /dev/stdout
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_local_domain =  localhost.localdomain
 smtpd_sasl_type = cyrus
-sender_canonical_maps = hash:/etc/postfix/sender_canonical
 local_header_rewrite_clients = static:all
