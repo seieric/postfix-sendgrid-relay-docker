@@ -46,13 +46,13 @@ You can set multiple servers.
 #### LDAP_BIND_DN (Required)
 LDAP bind DN.
 
-#### LDAP_BIND_PWD (Required)
+#### LDAP_BIND_PW (Required)
 LDAP bind password.
 
 #### LDAP_SEARCH_BASE (Required)
 LDAP search base. For example, ```ou=accounts,dc=example,dc=com```.
 
-#### LDAP_SEARCH_FQDN (Optional)
+#### LDAP_SEARCH_FILTER (Optional)
 LDAP search filter. Default is  ```(&(objectClass=inetOrgPerson)(uid=%U))```.
 
 ## Feature: sender canonical
