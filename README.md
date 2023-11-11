@@ -9,7 +9,8 @@
 - ✅ SMTP AUTH with LDAP (not implemented yet)
 
 ## How to use
-Just pull the image and run the container with environment variables.
+Just pull the image and run the container with environment variables. 
+You need to provide the hostname of the container to give the postfix hostname, otherwise it uses the container ID as a hostname.
 
 For example,
 ```bash
