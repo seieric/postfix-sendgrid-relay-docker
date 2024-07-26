@@ -6,9 +6,9 @@
 
 ## Features
 - 📩 Realy emails to SendGrid
-- 🔐 SMTP AUTH (with automated account creation)
+- 🔐 SMTP Auth with username and password
+- ✅ SMTP Auth with LDAP
 - 📇 Sender Canonical
-- ✅ SMTP AUTH with LDAP
 
 ## How to use
 Just pull the image and run the container with environment variables. 
@@ -17,7 +17,7 @@ You need to provide the hostname of the container to give the postfix hostname, 
 
 For example,
 ```bash
-docker run -d --hostname example.com -e SENDGRID_API_KEY=YOUR_API_KEY -e SMTP_USER=user -e SMTP_PASSWORD=abcdef -p 25:25 -p 587:587 ghcr.io/seieric/postfix-sendgrid-relay-docker:latest
+docker run -d --hostname example.com -e SENDGRID_API_KEY=<YOUR_API_KEY> -e SMTP_USER=user -e SMTP_PASSWORD=abcdef -p 25:25 -p 587:587 ghcr.io/seieric/postfix-sendgrid-relay-docker:latest
 ```
 
 ## Environment variables
@@ -39,24 +39,16 @@ Use LDAP authentication for SMTP AUTH. You need to set the following variables.
 
 <b>If you configure LDAP authentication, SMTP_USER and SMTP_PASSWORD will be ignored.</b>
 
-#### LDAP_SERVER (Required)
-LDAP server address. For example, ```ldap://127.0.0.1``` or ```ldaps://ldap.example.com```.
-You can set multiple servers.
-
-#### LDAP_BIND_DN (Required)
-LDAP bind DN.
-
-#### LDAP_BIND_PW (Required)
-LDAP bind password.
-
-#### LDAP_SEARCH_BASE (Required)
-LDAP search base. For example, ```ou=accounts,dc=example,dc=com```.
-
-#### LDAP_SEARCH_FILTER (Optional)
-LDAP search filter. Default is  ```(&(objectClass=inetOrgPerson)(uid=%U))```.
+| Name(* Required)    | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| LDAP_SERVER*        | LDAP server address. For example, `ldap://127.0.0.1` or `ldaps://ldap.example.com`. You can set multiple servers. |
+| LDAP_BIND_DN*       | LDAP bind DN.                                                               |
+| LDAP_BIND_PW*       | LDAP bind password.                                                         |
+| LDAP_SEARCH_BASE*   | LDAP search base. For example, `ou=accounts,dc=example,dc=com`.             |
+| LDAP_SEARCH_FILTER  | LDAP search filter. Default is `(&(objectClass=inetOrgPerson)(uid=%U))`.    |
 
 ## Feature: sender canonical
 This image supports sender canonical feature included in postfix.
 
-To use this feature, just mount your sender canonical file to ```/etc/postfix/sender_canonical```
+To use this feature, just mount your sender canonical file to `/etc/postfix/sender_canonical`
 The startup script automatically detects the file and enable the feature.
