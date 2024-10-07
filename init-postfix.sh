@@ -32,7 +32,7 @@ adduser postfix sasl
 if [[ -e /etc/postfix/sender_canonical ]]; then
   /usr/sbin/postmap /etc/postfix/sender_canonical && chmod 600 /etc/postfix/sender_canonical.db
   if grep -q "^sender_canonical_maps" /etc/postfix/main.cf; then
-    sed -i 's/^sender_canonical_maps/sender_canonical_maps = hash:\/etc\/postfix\/sender_canonical/' /etc/postfix/main.cf
+    sed -i 's/^sender_canonical_maps.*/sender_canonical_maps = hash:\/etc\/postfix\/sender_canonical/' /etc/postfix/main.cf
   else
     echo "sender_canonical_maps = hash:/etc/postfix/sender_canonical" >> /etc/postfix/main.cf
   fi
